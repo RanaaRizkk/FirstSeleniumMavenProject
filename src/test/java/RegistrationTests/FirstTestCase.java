@@ -39,7 +39,7 @@ public class FirstTestCase {
                 .fillAccountInfo(testData.getTestData("pass"),testData.getTestData("Days"),testData.getTestData("Months"),testData.getTestData("years"))
                 .selectCheckboxForNewsLetter()
                 .selectCheckboxforOffers()
-                .fillAddressInfo(testData.getTestData("FirstName"),testData.getTestData("LastName"),testData.getTestData("Company"),testData.getTestData("FirstAddress"),"5th settlement","Canada","Cairo","5th settlement","112334","0123454565456")
+                .fillAddressInfo(testData.getTestData("FirstName"),testData.getTestData("LastName"),testData.getTestData("Company"),testData.getTestData("FirstAddress"),testData.getTestData("5th settlement"),testData.getTestData("Canada"),testData.getTestData("Cairo"),testData.getTestData("5th settlement"),testData.getTestData("112334"),testData.getTestData("0123454565456"))
                 .clickOnSubmitButton();
         new AccountCreatedPage(driver)
                 .assertOnAccountCreatedText()
@@ -52,6 +52,8 @@ public class FirstTestCase {
 
 
     }
+
+
 
 
     @AfterMethod

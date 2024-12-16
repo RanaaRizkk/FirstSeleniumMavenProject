@@ -8,5 +8,11 @@
   "FirstName" : "Rana",
   "LastName" : "ri",
   "Company" : "GizaSys",
-  "FirstAddress" : "Giza"
+  "FirstAddress" : "Giza",
+  "SecondAddress" : "Cairo",
+  "Country" : "Canada",
+  "State" : "Ontario",
+  "City" : "5th settlement",
+  "ZipCode": "123234",
+  "MobileNumber" : "012342345454"
 }

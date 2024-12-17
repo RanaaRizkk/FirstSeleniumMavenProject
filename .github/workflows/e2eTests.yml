@@ -17,7 +17,6 @@ on:
      
 jobs:
    upload-and-delete:
-     E2E_Chrome_Linux_Test:
      runs-on: ubuntu-latest
      permissions:
       checks: write

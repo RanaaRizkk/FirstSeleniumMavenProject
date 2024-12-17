@@ -1,18 +1,21 @@
 name: E2E Tests
 
 on:
-  workflow_dispatch:
-    inputs:
-      testsPath:
-        description: 'Path to Tests to be Executed'
-        default: ''
-  
   schedule:
     - cron: '* * * * *'
-  
+
   pull_request: 
     branches:
       - main
+  #workflow_dispatch:
+   # inputs:
+      #testsPath:
+        #description: 'Path to Tests to be Executed'
+        #default: ''
+  
+  
+  
+
 
  
      

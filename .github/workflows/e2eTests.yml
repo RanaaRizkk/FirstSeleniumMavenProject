@@ -1,14 +1,19 @@
 name: E2E Tests
 
 on:
- # workflow_dispatch:
-   # inputs:
-     # testsPath:
-       # description: 'Path to Tests to be Executed'
-       # default: ''
-  
   schedule:
-    - cron: '43 2 * * *'
+    - cron: '0 */1 * * *'
+  workflow_dispatch:
+    inputs:
+      testsPath:
+        description: 'Path to Tests to be Executed'
+        default: ''
+      date:
+        description: 'Date to run the workflow'
+        required: false
+        default: ${{ github.event.inputs.date }}
+
+
   
   pull_request: 
     branches:

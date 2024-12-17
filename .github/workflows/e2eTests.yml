@@ -6,15 +6,15 @@ on:
       testsPath:
         description: 'Path to Tests to be Executed'
         default: ''
+  
   schedule:
-    - cron: '20 2 * * *'
+    - cron: '35 2 * * *'
   
   pull_request: 
     branches:
       - main
 
-   
-  
+     
 jobs:
   E2E_Chrome_Linux_Test:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test "-DbrowserType=chrome" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=true" "-Dtest=${{ github.event.inputs.testsPath }}"
+        run: mvn test "-DbrowserType=chrome" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=true" "-Dtest=${{ github.event.inputs.testsPath ||  'RegistrationTests.FirstTestCase' }}"
 
 
       - name: Generate Allure Report Single File
@@ -80,7 +80,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test "-DbrowserType=edge" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=false" "-Dtest=${{ github.event.inputs.testsPath }}"
+        run: mvn test "-DbrowserType=edge" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=false" "-Dtest=${{ github.event.inputs.testsPath ||  'RegistrationTests.FirstTestCase' }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true

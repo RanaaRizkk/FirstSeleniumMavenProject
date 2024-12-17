@@ -19,7 +19,7 @@ public class FirstTestCase {
     @BeforeMethod
     public void beforeMethod() {
         PropertiesReader.loadProperties();
-        driver = initiateDriver(System.getProperty("browserType"), true);
+        driver = initiateDriver(System.getProperty("browserType"), Boolean.valueOf(System.getProperty("maximizeWindow")),Boolean.valueOf(System.getProperty("headlessExecution")));
         testData = new JsonFileManager("src/test/resources/TestDataJsonFile/TestData.json");
     }
 
@@ -39,7 +39,7 @@ public class FirstTestCase {
                 .fillAccountInfo(testData.getTestData("pass"),testData.getTestData("Days"),testData.getTestData("Months"),testData.getTestData("years"))
                 .selectCheckboxForNewsLetter()
                 .selectCheckboxforOffers()
-                .fillAddressInfo(testData.getTestData("FirstName"),testData.getTestData("LastName"),testData.getTestData("Company"),testData.getTestData("FirstAddress"),testData.getTestData("5th settlement"),testData.getTestData("Canada"),testData.getTestData("Cairo"),testData.getTestData("5th settlement"),testData.getTestData("112334"),testData.getTestData("0123454565456"))
+                .fillAddressInfo(testData.getTestData("FirstName"),testData.getTestData("LastName"),testData.getTestData("Company"),testData.getTestData("FirstAddress"),testData.getTestData("SecondAddress"),testData.getTestData("Country"),testData.getTestData("State"),testData.getTestData("City"),testData.getTestData("ZipCode"),testData.getTestData("MobileNumber"))
                 .clickOnSubmitButton();
         new AccountCreatedPage(driver)
                 .assertOnAccountCreatedText()

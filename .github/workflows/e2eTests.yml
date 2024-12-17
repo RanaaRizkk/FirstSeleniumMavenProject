@@ -2,7 +2,7 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '25 3 * * *'
 
   pull_request: 
     branches:

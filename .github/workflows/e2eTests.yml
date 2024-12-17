@@ -6,7 +6,15 @@ on:
       testsPath:
         description: 'Path to Tests to be Executed'
         default: ''
+  schedule:
+    - cron: '20 2 * * *'
+  
+  pull_request: 
+    branches:
+      - main
 
+   
+  
 jobs:
   E2E_Chrome_Linux_Test:
     runs-on: ubuntu-latest

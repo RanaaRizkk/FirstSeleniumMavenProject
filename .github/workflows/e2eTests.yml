@@ -45,7 +45,7 @@ jobs:
         run: mvn allure:report
     
       - name: Upload Allure Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Chrome_Linux_Allure
           path: target/site/allure-maven-plugin/index.html
@@ -87,9 +87,9 @@ jobs:
         run: mvn allure:report
     
       - name: Upload Allure Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: Chrome_Linux_Allure
+          name: Edge_Windows_Allure
           path: target/site/allure-maven-plugin/index.html
       
       - name: Publish Report

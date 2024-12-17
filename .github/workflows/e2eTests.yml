@@ -8,7 +8,7 @@ on:
         default: ''
 
   schedule:
-    - cron: '37 3 * * *' 
+    - cron: '0 4 * * *' 
 
   pull_request: 
     branches:

@@ -2,20 +2,16 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '25 3 * * *'
+    - cron: '30 3 * * *'
 
-  pull_request: 
-    branches:
-      - main
+ # pull_request: 
+   # branches:
+   #   - main
   #workflow_dispatch:
    # inputs:
       #testsPath:
         #description: 'Path to Tests to be Executed'
         #default: ''
-  
-  
-  
-
 
  
      

@@ -1,24 +1,20 @@
 name: E2E Tests
 
 on:
-  schedule:
-    - cron: '0 */1 * * *'
   workflow_dispatch:
     inputs:
       testsPath:
         description: 'Path to Tests to be Executed'
         default: ''
-      date:
-        description: 'Date to run the workflow'
-        required: false
-        default: ${{ github.event.inputs.date }}
-
-
+  
+  schedule:
+    - cron: '* * * * *'
   
   pull_request: 
     branches:
       - main
 
+ 
      
 jobs:
   E2E_Chrome_Linux_Test:

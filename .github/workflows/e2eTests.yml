@@ -1,19 +1,19 @@
 name: E2E Tests
 
 on:
+  workflow_dispatch:
+    inputs:
+      testsPath:
+        description: 'Path to Tests to be Executed'
+        default: ''
+
   schedule:
     - cron: '37 3 * * *' 
 
- # pull_request: 
-   # branches:
-   #   - main
-  #workflow_dispatch:
-   # inputs:
-      #testsPath:
-        #description: 'Path to Tests to be Executed'
-        #default: ''
+  pull_request: 
+    branches:
+      - main
 
- 
      
 jobs:
   E2E_Chrome_Linux_Test:
@@ -37,7 +37,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test "-DbrowserType=chrome" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=true" "-Dtest='RegistrationTests.FirstTestCase' "
+        run: mvn test "-DbrowserType=chrome" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=true" "-Dtest=${{ github.event.inputs.testsPath || 'RegistrationTests.FirstTestCase' }} "
 
 
       - name: Generate Allure Report Single File
@@ -80,7 +80,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test "-DbrowserType=edge" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=false" "-Dtest='RegistrationTests.FirstTestCase' "
+        run: mvn test "-DbrowserType=edge" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=false" "-Dtest=-Dtest=${{ github.event.inputs.testsPath || 'RegistrationTests.FirstTestCase' }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true

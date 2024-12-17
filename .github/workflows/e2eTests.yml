@@ -16,7 +16,7 @@ on:
 
      
 jobs:
-   upload-and-delete:
+   Linux_chrome:
      runs-on: ubuntu-latest
      permissions:
       checks: write
@@ -45,7 +45,7 @@ jobs:
         run: mvn allure:report
     
       - name: Upload Allure Report as Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: Chrome_Linux_Allure
           path: target/site/allure-maven-plugin/index.html
@@ -59,7 +59,7 @@ jobs:
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
 
-   E2E_Edge_Windows_Test:
+   Edge_windows:
     runs-on: windows-latest
     permissions:
       checks: write
@@ -87,7 +87,7 @@ jobs:
         run: mvn allure:report
     
       - name: Upload Allure Report as Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: Chrome_Linux_Allure
           path: target/site/allure-maven-plugin/index.html

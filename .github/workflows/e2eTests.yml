@@ -29,7 +29,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn -DbrowserType="chrome" -DmaximizeWindow="true" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}" 
+        run: mvn -DbrowserType="chrome" -DmaximizeWindow="true" -DheadlessExecution="true" -Dtest=${{ github.event.inputs.testsPath }} 
 
       - name: Generate Allure Report Single File
         continue-on-error: true
@@ -71,7 +71,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn -DbrowserType="edge" -DmaximizeWindow="true" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn -DbrowserType="edge" -DmaximizeWindow="true" -DheadlessExecution="false" -Dtest=${{ github.event.inputs.testsPath }}
 
       - name: Generate Allure Report Single File
         continue-on-error: true

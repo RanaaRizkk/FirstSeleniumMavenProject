@@ -1,11 +1,7 @@
 name: RestAssured Tests
 
 on:
-  workflow_dispatch:
-    inputs:
-      testsPath:
-        description: 'Path to Tests to be Executed'
-        default: ''
+
 
   schedule:
     - cron: '5 5 * * *' 

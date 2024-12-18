@@ -47,7 +47,7 @@ jobs:
       - name: Upload Allure Report as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Chrome_Linux_Allure
+          name: Linux_Allure
           path: target/site/allure-maven-plugin/index.html
       
       - name: Publish Report
@@ -55,7 +55,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Tests Report Chrome_Linux
+          name: Tests Report Linux
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
    Windows:
@@ -89,7 +89,7 @@ jobs:
       - name: Upload Allure Report as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Chrome_Linux_Allure
+          name: Windows_Allure
           path: target/site/allure-maven-plugin/index.html
       
       - name: Publish Report
@@ -97,7 +97,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Tests Report Chrome_Linux
+          name: Tests Report Windows
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
           

@@ -71,7 +71,7 @@ public class RestfulBookerTest1 {
                 .delete("https://restful-booker.herokuapp.com/booking/"+ bookingid).
         then()
                 .statusCode(201).
-          and()
+        and()
                 .log().body().extract().asString();
 
         Assert.assertTrue(responseBody.contains("Created"));

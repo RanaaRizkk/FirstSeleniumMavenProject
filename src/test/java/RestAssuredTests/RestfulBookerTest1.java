@@ -6,7 +6,7 @@ import org.hamcrest.CoreMatchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
+
 
 public class RestfulBookerTest1 {
     @Test(description = "Delete User")

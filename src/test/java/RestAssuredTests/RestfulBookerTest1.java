@@ -2,6 +2,7 @@ package RestAssuredTests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.hamcrest.CoreMatchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,7 +33,6 @@ public class RestfulBookerTest1 {
                 }
                 """;
         String token =
-
         RestAssured.
         given()
                 .header("Content-Type","application/json")
@@ -41,7 +41,12 @@ public class RestfulBookerTest1 {
         when()
                 .post("https://restful-booker.herokuapp.com/auth").
         then()
-                .statusCode(200).and().log().body().extract().jsonPath().get("token").toString();
+                .statusCode(200).
+        and()
+                .log().body().extract().jsonPath().get("token").toString();
+        Assert.assertNotNull(token);
+
+
 
 
 
@@ -71,7 +76,7 @@ public class RestfulBookerTest1 {
                 .delete("https://restful-booker.herokuapp.com/booking/"+ bookingid).
         then()
                 .statusCode(201).
-          and()
+        and()
                 .log().body().extract().asString();
 
         Assert.assertTrue(responseBody.contains("Created"));
